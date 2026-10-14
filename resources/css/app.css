@@ -4,6 +4,319 @@
 @source '../../storage/framework/views/*.php';
 
 @theme {
-    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
-        'Segoe UI Symbol', 'Noto Color Emoji';
+    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif;
+}
+
+:root {
+    --bg-color: #fcf8f2;
+    --card-bg: #ffffff;
+    --text-main: #1f374d;      /* Warna navy logo */
+    --text-muted: #6b6563;
+    --primary: #d95d43;        /* Warna merah-oranye logo */
+    --primary-hover: #bd4830;
+    --border-color: #ebdcd0;
+}
+
+body.onibite-body {
+    margin: 0;
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    font-family: var(--font-sans);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* --- NAVBAR & BRANDING --- */
+.onibite-navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem 2rem;
+    background-color: var(--card-bg);
+    border-bottom: 1px solid var(--border-color);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+/* --- BRANDING & LOGO --- */
+.onibite-logo-brand {
+    display: flex;
+    align-items: center;
+    gap: 0.15rem !important; /* Jarak dibuat sangat dekat (sekitar 2-3px) */
+    text-decoration: none;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text-main);
+    line-height: 1;
+}
+
+.onibite-logo-img {
+    height: 48px;
+    width: 48px;
+    object-fit: contain;
+    border-radius: 50%;
+    margin: 0 !important;   /* Menghapus margin bawaan jika ada */
+    padding: 0 !important;  /* Menghapus padding bawaan jika ada */
+}
+
+.onibite-logo-brand span {
+    margin-left: 0 !important; /* Memastikan teks tidak terdorong ke kanan */
+    padding-left: 0 !important;
+}
+
+.onibite-nav-links {
+    display: flex;
+    gap: 1.25rem;
+    align-items: center;
+}
+
+.onibite-nav-links a {
+    text-decoration: none;
+    color: var(--text-muted);
+    font-weight: 500;
+    transition: color 0.2s;
+}
+
+.onibite-nav-links a:hover,
+.onibite-nav-links a.active {
+    color: var(--primary);
+    font-weight: 600;
+}
+
+/* --- HERO SECTION --- */
+.onibite-hero {
+    padding: 4rem 1.5rem;
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.onibite-badge {
+    background-color: #fcebe8;
+    color: var(--primary);
+    padding: 0.25rem 0.75rem;
+    border-radius: 50px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    display: inline-block;
+}
+
+.onibite-title {
+    font-size: 2.75rem;
+    font-weight: 800;
+    margin: 1rem 0;
+    color: var(--text-main);
+    line-height: 1.2;
+}
+
+.onibite-subtitle {
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    line-height: 1.5;
+}
+
+.onibite-hero-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* --- BUTTONS --- */
+.onibite-btn-primary {
+    background-color: var(--primary);
+    color: white;
+    padding: 0.6rem 1.25rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    display: inline-block;
+}
+
+.onibite-btn-primary:hover {
+    background-color: var(--primary-hover);
+}
+
+.onibite-btn-outline {
+    background-color: transparent;
+    color: var(--text-main);
+    padding: 0.6rem 1.25rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    border: 1px solid var(--border-color);
+    display: inline-block;
+}
+
+/* --- SECTION & CARDS --- */
+.onibite-section {
+    padding: 2.5rem 1.5rem;
+    max-width: 1000px;
+    margin: 0 auto;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.onibite-section h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.onibite-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.5rem;
+}
+
+.onibite-card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.onibite-card-img {
+    font-size: 3rem;
+    background: var(--bg-color);
+    padding: 1rem;
+    border-radius: 8px;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.onibite-card h3 {
+    margin: 0 0 0.5rem 0;
+    font-size: 1.25rem;
+}
+
+.onibite-card p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    margin: 0 0 1.5rem 0;
+}
+
+.onibite-card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.onibite-price {
+    font-weight: 700;
+    font-size: 1.1rem;
+}
+
+.onibite-btn-sm {
+    background-color: var(--text-main);
+    color: white;
+    padding: 0.4rem 0.8rem;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.onibite-btn-sm:hover {
+    background-color: var(--primary);
+}
+
+/* --- FOOTER --- */
+.onibite-footer {
+    text-align: center;
+    padding: 2rem 1rem;
+    border-top: 1px solid var(--border-color);
+    color: var(--text-muted);
+    margin-top: auto;
+}
+
+/* --- TOAST MESSAGE --- */
+.onibite-toast-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 100;
+}
+
+.onibite-toast {
+    background-color: var(--text-main);
+    color: white;
+    padding: 0.75rem 1.25rem;
+    border-radius: 8px;
+    margin-top: 0.5rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    animation: fadeInOut 3s forwards;
+}
+
+@keyframes fadeInOut {
+    0% { opacity: 0; transform: translateY(10px); }
+    15% { opacity: 1; transform: translateY(0); }
+    85% { opacity: 1; transform: translateY(0); }
+    100% { opacity: 0; transform: translateY(10px); }
+}
+
+/* ==========================================
+   RESPONSIVE MEDIA QUERIES (MOBILE & TABLET)
+   ========================================== */
+@media (max-width: 640px) {
+    .onibite-navbar {
+        flex-direction: column;
+        gap: 0.75rem;
+        padding: 0.75rem 1rem;
+    }
+
+    .onibite-logo-img {
+        height: 40px;
+        width: 40px;
+    }
+
+    .onibite-nav-links {
+        gap: 1rem;
+        width: 100%;
+        justify-content: center;
+    }
+
+    .onibite-hero {
+        padding: 2.5rem 1rem;
+    }
+
+    .onibite-title {
+        font-size: 2rem;
+    }
+
+    .onibite-subtitle {
+        font-size: 0.95rem;
+    }
+
+    .onibite-hero-actions {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .onibite-btn-primary,
+    .onibite-btn-outline {
+        width: 100%;
+        text-align: center;
+        box-sizing: border-box;
+    }
+
+    .onibite-section {
+        padding: 2rem 1rem;
+    }
+
+    .onibite-toast-container {
+        left: 20px;
+        right: 20px;
+        bottom: 15px;
+    }
 }
